@@ -62,7 +62,6 @@ class Nixie:
         value = value << 1
         self.shift_bit(value&0x08)
         value = value << 1
-        self.shift_bit(value&0x08)
 
     def set_value(self, value):
         # Shift a decimal value into the register
@@ -80,13 +79,13 @@ def main():
         nixie = Nixie(PIN_DATA, PIN_LATCH, PIN_CLK, 4)
 
         # Uncomment for a simple test pattern
-        #nixie.set_value(1234)
+        #nixie.set_value(123)
 
         # Repeatedly get the current time of day and display it on the tubes.
         # (the time retrieved will be in UTC; you'll want to adjust for your
         # time zone)
         while True:
-            dt = datetime.datetime.now()
+            dt = datetime.datetime.now() #replace with temperature
             nixie.set_value(dt.hour*100 + dt.minute)
 
     finally:

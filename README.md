@@ -5,9 +5,9 @@ import RPi.GPIO as GPIO
 import time
 import datetime
 
-PIN_DATA = 23
-PIN_LATCH = 24
-PIN_CLK = 25
+PIN_DATA = 3
+PIN_LATCH = 1
+PIN_CLK = 2
 
 class Nixie:
     def __init__(self, pin_data, pin_latch, pin_clk, digits):
@@ -30,7 +30,7 @@ class Nixie:
 
     def delay(self):
         # We'll use a 10ms delay for our clock
-        time.sleep(0.010)
+        time.sleep(1.000)
 
     def transfer_latch(self):
         # Trigger the latch pin from 0->1. This causes the value that we've
@@ -61,7 +61,6 @@ class Nixie:
         self.shift_bit(value&0x08)
         value = value << 1
         self.shift_bit(value&0x08)
-        value = value << 1
 
     def set_value(self, value):
         # Shift a decimal value into the register

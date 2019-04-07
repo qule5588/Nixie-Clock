@@ -5,9 +5,9 @@ import RPi.GPIO as GPIO
 import time
 import datetime
 
-PIN_DATA = 3
-PIN_LATCH = 1
-PIN_CLK = 2
+PIN_DATA = 23
+PIN_LATCH = 24
+PIN_CLK = 25
 
 class Nixie:
     def __init__(self, pin_data, pin_latch, pin_clk, digits):

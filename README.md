@@ -1,4 +1,4 @@
-# Nixie-Clock
+# Nixie-Clock brown(1), blue(3), red(7), orange(8), purple(11)
 Code for nixie tube clock in raspberry pi
 
 import RPi.GPIO as GPIO

@@ -1,4 +1,4 @@
-# Nixie-Clock brown(1), blue(3), red(7), orange(8), purple(11)
+# Nixie-Clock brown(1), blue(3), red(8), orange(9), purple(11)
 Code for nixie tube clock in raspberry pi
 
 import RPi.GPIO as GPIO
@@ -61,6 +61,8 @@ class Nixie:
         self.shift_bit(value&0x08)
         value = value << 1
         self.shift_bit(value&0x08)
+        value = value << 1
+        self.shift_bit(value&0x08)
 
     def set_value(self, value):
         # Shift a decimal value into the register
@@ -75,10 +77,10 @@ class Nixie:
 
 def main():
     try:
-        nixie = Nixie(PIN_DATA, PIN_LATCH, PIN_CLK, 4)
+        nixie = Nixie(PIN_DATA, PIN_LATCH, PIN_CLK, 1)
 
         # Uncomment for a simple test pattern
-        #nixie.set_value(123)
+        #nixie.set_value(4)
 
         # Repeatedly get the current time of day and display it on the tubes.
         # (the time retrieved will be in UTC; you'll want to adjust for your
